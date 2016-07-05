@@ -138,14 +138,15 @@ else
 
             [ req_distinguished_name ]
             countryName                     = Pays
-			countryName_default             = FR
-			stateOrProvinceName             = Departement
-			stateOrProvinceName_default     = Ile-de-France
-			localityName                    = Ville
-			localityName_default            = Ivry Sur Seine
-			organizationName        		= Organisation
-			organizationName_default        = CantBreakIt
+		countryName_default             = FR
+		stateOrProvinceName             = Departement
+		stateOrProvinceName_default     = Ile-de-France
+		localityName                    = Ville
+		localityName_default            = Ivry Sur Seine
+		organizationName        	  = Organisation
+		organizationName_default        = CantBreakIt
             commonName                      = Name
+            commonName_default              = $CANewName
             commonName_max                  = 64
             emailAddress                    = example@name.fr
             emailAddress_max                = 40

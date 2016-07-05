@@ -3,7 +3,7 @@
 # Auteur : Alexis Cangelosi
 # Promotion : ITI14M SR
 # Theme : Evaluation de fin de semestre
-# Titre : Suppresion autorité de certification fille [AUTOMATISATION]
+# Titre : Suppresion certificat [AUTOMATISATION]
 ###############################################################################
 
 ###############################################################################
@@ -23,37 +23,35 @@ Home="/home/ubuntu"
 clear
 
 # On récupère le nom de la CA FILLE à supprimer
-echo "[!] Le script va supprimer automatiquement la CA FILLE, veuillez suivre les eventuelles instructions qui vous seront demandees !"
+echo "[!] Le script va supprimer automatiquement un certificat, veuillez suivre les eventuelles instructions qui vous seront demandees !"
 echo ""
-echo "[!] Liste des CA FILLE : "
+echo "[!] Liste des CA FILLE disponible : "
 cat $RootDos/$RootNom/index.txt | grep V | awk '{print $7}' | cut -d "/" -f 3 | cut -d "=" -f 2
-echo "[*] CN de la CA FILLE : "
-read -p "-> " CN
+echo "[*] CN de la CA FILLE à utiliser : "
+read -p "-> " CAFilleNom
 
-# On recupère le mail de la CA FILLE à supprimer
 echo ""
-echo "[!] Liste des mails associés aux CA FILLE : "
-cat $RootDos/$RootNom/index.txt | grep V | awk '{print $7}' | cut -d "/" -f 4 | cut -d "=" -f 2
-echo "[*] MAIL de la CA FILLE : "
-read -p "-> " MAIL
+echo "[!] Liste des certificats disponible  : "
+cat $RootDos/$CAFilleNom/index.txt | grep V | awk '{print $7}' | cut -d "/" -f 3 | cut -d "=" -f 2
+echo "[*] CN du certificat à utiliser : "
+read -p "-> " CACertNom
 
 # Avec le CN et le mail on peux recuperer l'ID de la CA FILLE
-CA_ID=$(cat $RootDos/$RootNom/index.txt | grep V | grep $CN | grep $MAIL | awk '{print $3}')
+CA_ID=$(cat $RootDos/$CAFilleNom/index.txt | grep V | grep $CACertNom | awk '{print $3}')
 
-if [ -n "$CN" ] && [ -n "$MAIL" ]
+if [ -n "$CACertNom" ] && [ -n "$CA_ID" ]
 then
     echo "[!] La CA suivante va etre supprimer !"
-    echo "[!] CN = $CN"
-    echo "[!] MAIL = $MAIL"
+    echo "[!] CN = $CACertNom"
     echo "[!] CLIENT ID = $CA_ID"
 
-    openssl ca -name CA_default -config $RootDos/openssl.cnf -revoke $RootDos/$RootNom/newcerts/$CA_ID.pem
+    openssl ca -name CA_ssl_default -config $RootDos/$CAFilleNom/$CAFilleNom.openssl.cnf -revoke $RootDos/$CAFilleNom/newcerts/$CA_ID.pem
 
-    mv $RootDos/$CN $RootDos/$RootNom/revoked_ca/
+    mv $RootDos/$CAFilleNom/newcerts/$CACertNom $RootDos/$CAFilleNom/revoked_ca/
+
 else
    echo "[*] Il y a eu une erreur ! L'un des champs suivant n'est pas valide !"
    echo "[!] CN = $CN"
-   echo "[!] MAIL = $MAIL"
    echo "[!] CLIENT ID = $CA_ID"
    exit
    clear
