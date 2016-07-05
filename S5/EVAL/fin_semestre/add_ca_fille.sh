@@ -63,7 +63,7 @@ if [ ! -d $RootDos ] ; then
 
 	echo "[*] Création des mêmes répertoires que le CA ROOT pour la CA FILLE"
 	mkdir -p $CAFilleNom/newcerts	
-	touch CAFilleNom/index.txt
+	touch $CAFilleNom/index.txt
 	echo '01' > $CAFilleNom/serial
 
 	echo "[*] Création d'un couple de clefs (publique/privée) pour la CA FILLE"
