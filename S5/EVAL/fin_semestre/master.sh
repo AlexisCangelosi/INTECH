@@ -113,10 +113,14 @@ case "$choix" in
 		echo "[7] Activate Client-to-Client"
 		echo "[8] Desactivate Client-to-Client"
 
-3)	clear;;
+3)	clear
+	echo "###########################################################################"
+   	echo "VPN"
+   	echo "###########################################################################";;
 
 *)	echo "[!] Mauvaise saisie !"
 	echo "[1] PKI"
 	echo "[2] VPN"
-	echo "[3] Firewall";;
+	echo "[3] Firewall"
+	;;
 esac;;
