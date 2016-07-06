@@ -32,9 +32,9 @@ echo "[2] VPN"
 echo "[3] Firewall"
 read -p "-> " choix
 
-case "$choix" in
+if "$choix" == "1" ; then
 
-1)	clear
+	clear
    	echo "###########################################################################"
    	echo "PKI"
    	echo "###########################################################################"
@@ -62,8 +62,9 @@ case "$choix" in
 		echo "[4] Del Certificat";;
     esac;;
 	
+elif "$choix" == "2" ; then	
 	
-2)	clear
+	clear
 	echo "###########################################################################"
    	echo "VPN"
    	echo "###########################################################################"
@@ -113,14 +114,15 @@ case "$choix" in
 		echo "[7] Activate Client-to-Client"
 		echo "[8] Desactivate Client-to-Client"
 
-3)	clear
+elif "$choix" == "3" ; then
+	
+	clear
 	echo "###########################################################################"
    	echo "VPN"
-   	echo "###########################################################################";;
+   	echo "###########################################################################"
 
-*)	echo "[!] Mauvaise saisie !"
+else
+	echo "[!] Mauvaise saisie !"
 	echo "[1] PKI"
 	echo "[2] VPN"
 	echo "[3] Firewall"
-	;;
-esac;;
