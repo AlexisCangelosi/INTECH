@@ -3,7 +3,7 @@
 # Auteur : Alexis Cangelosi
 # Promotion : ITI14M SR
 # Theme : Evaluation de fin de semestre
-# Titre : Activation x509 serveur [AUTOMATISATION]
+# Titre : Désactivation x509 [AUTOMATISATION]
 ###############################################################################
 
 ###############################################################################
@@ -16,6 +16,7 @@ root_install="/usr/share/easy-rsa/"
 conf_name="serveur_x509.conf"
 server_name="None"
 
+
 ###############################################################################
 # 								SCRIPT									  
 ###############################################################################
@@ -24,7 +25,7 @@ server_name="None"
 clear
 
 echo "###########################################################################"
-echo "Activation du vpn"
+echo "Désactivation du vpn"
 echo "###########################################################################"
 echo ""
 echo "[!] Liste des serveur disponible :"
@@ -32,8 +33,7 @@ ls $root_vpn/serveur/
 echo "[*] Nom du server à activer :"
 read -p "[*] -> " server_name
 
-
-ln -s $root_vpn/serveur/$server_name/* $root_openvpn/
+rm $root_openvpn/dh* $root_openvpn/ca.crt $root_openvpn/$server_name.*
 
 service openvpn restart
 exit 0

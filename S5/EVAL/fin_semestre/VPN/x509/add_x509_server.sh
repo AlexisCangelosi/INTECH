@@ -83,10 +83,10 @@ dh dh2048.pem
 
 server 10.8.1.0 255.255.255.0
 
-push 'redirect-gateway local def1 bypass-dhcp'
+push 'redirect-gateway def1'
 push 'dhcp-option DNS 8.8.8.8'
 push 'dhcp-option DNS 8.8.4.4'
-;push 'route 192.168.10.0 255.255.255.0'
+push 'route 192.168.0.0 255.255.255.0'
 ;push 'route 192.168.20.0 255.255.255.0'
 
 client-to-client
@@ -113,7 +113,6 @@ status openvpn-status.log
 verb 6
 
 ;mute 20
-" > /opt/vpn/x509/server/$server_name/$server_name.conf
+" > /opt/vpn/x509/serveur/$server_name/$server_name.conf
 
-service openvpn restart
 exit 0
