@@ -38,12 +38,11 @@ if [ $choix -eq 1 ] ; then
    	echo "###########################################################################"
    	echo "PKI"
    	echo "###########################################################################"
-   	echo "[*] Que voulez vous faire ?"
 	echo "[1] Add CA FILLE"
 	echo "[2] Del CA FILLE"
 	echo "[3] Add Certificat"
 	echo "[4] Del Certificat"
-	read -p "-> " choix
+	read -p "=> " choix
 
     if [ $choix -eq 1 ] ; then
 		clear
@@ -71,7 +70,6 @@ elif [ $choix -eq 2 ] ; then
 	echo "###########################################################################"
    	echo "VPN"
    	echo "###########################################################################"
-   	echo "[*] Que voulez vous faire ?"
 	echo "[1] Add Server"
 	echo "[2] Add Client"
 	echo "[3] Activate Server"
@@ -80,7 +78,7 @@ elif [ $choix -eq 2 ] ; then
 	echo "[6] Desactivate Server"
 	echo "[7] Activate Client-to-Client"
 	echo "[8] Desactivate Client-to-Client"
-	read -p "-> " choix
+	read -p "=> " choix
 
 	if [ $choix -eq 1 ] ; then
 		clear
