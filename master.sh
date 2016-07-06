@@ -32,7 +32,7 @@ echo "[2] VPN"
 echo "[3] Firewall"
 read -p "-> " choix
 
-if $choix -eq 1 ; then
+if [ $choix -eq 1 ] ; then
 
 	clear
    	echo "###########################################################################"
@@ -65,7 +65,7 @@ if $choix -eq 1 ; then
 		echo "[4] Del Certificat"
 	fi
 	
-elif $choix -eq 2 ; then	
+elif [ $choix -eq 2 ] ; then	
 	
 	clear
 	echo "###########################################################################"
@@ -118,7 +118,7 @@ elif $choix -eq 2 ; then
 		echo "[8] Desactivate Client-to-Client"
 	fi
 
-elif $choix -eq 3 ; then
+elif [ $choix -eq 3 ] ; then
 	
 	clear
 	echo "###########################################################################"
