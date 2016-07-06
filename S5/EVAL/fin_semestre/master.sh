@@ -63,6 +63,7 @@ if "$choix" == "1" ; then
 		echo "[2] Del CA FILLE"
 		echo "[3] Add Certificat"
 		echo "[4] Del Certificat"
+	fi
 	
 elif "$choix" == "2" ; then	
 	
@@ -115,6 +116,7 @@ elif "$choix" == "2" ; then
 		echo "[6] Desactivate Server"
 		echo "[7] Activate Client-to-Client"
 		echo "[8] Desactivate Client-to-Client"
+	fi
 
 elif "$choix" == "3" ; then
 	
@@ -128,3 +130,4 @@ else
 	echo "[1] PKI"
 	echo "[2] VPN"
 	echo "[3] Firewall"
+fi
