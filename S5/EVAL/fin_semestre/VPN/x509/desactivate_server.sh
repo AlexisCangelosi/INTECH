@@ -13,7 +13,6 @@
 root_vpn="/opt/vpn/x509"
 root_openvpn="/etc/openvpn"
 root_install="/usr/share/easy-rsa/"
-conf_name="serveur_x509.conf"
 server_name="None"
 
 

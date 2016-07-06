@@ -13,7 +13,7 @@
 root_vpn="/opt/vpn/x509"
 root_openvpn="/etc/openvpn"
 root_install="/usr/share/easy-rsa/"
-client_name="None"
+serveur_name="None"
 
 
 ###############################################################################
@@ -24,18 +24,18 @@ client_name="None"
 clear
 
 echo "###########################################################################"
-echo "Suppression d'un client vpn"
+echo "Suppression d'un serveur vpn"
 echo "###########################################################################"
 echo ""
-echo "[!] Liste des clients disponible :"
-ls $root_vpn/client/
-echo "[*] Nom du client :"
-read -p "[*] -> " client_name
+echo "[!] Liste des serveur disponible :"
+ls $root_vpn/serveur/
+echo "[*] Nom du serveur :"
+read -p "[*] -> " serveur_name
 
 cd $root_install
 source vars
-$root_install/revoke-full $client_name
-rm -R $root_vpn/client/$client_name
+$root_install/revoke-full $serveur_name
+rm -R $root_vpn/serveur/$serveur_name
 
 exit
 
