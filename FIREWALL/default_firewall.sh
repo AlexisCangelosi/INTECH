@@ -7,23 +7,11 @@
 ###############################################################################
 
 ###############################################################################
-# 								VARIABLES									  
+# 								VARIABLE									  
 ###############################################################################
 
-LO="lo"
-LO_IP="127.0.0.1"
-
-ETH0="eth0"
-ETH0_IP="192.168.0.10"
-
-ETH1="eth1"
-ETH1_IP="192.168.1.16"
-
-PSK="tun0"
-PSK_IP="10.8.0.1/24"
-
-X509="tun1"
-X509_IP="10.8.0.1/24"
+NET="eth0"
+NET_IP="192.168.0.10"
 
 ###############################################################################
 # 								SCRIPT									  
@@ -36,65 +24,68 @@ clear
 # 						PARAMETRE PAR DEFAUT									  
 ###############################################################################
 
-iptables -F
-iptables -X
+echo "[*] Initialisation du firewall :"
 
-iptables -P INPUT DROP
-iptables -P OUTPUT DROP
-iptables -P FORWARD DROP
+# Vidage des tables et des regles personnelles
+iptables -t filter -F
+iptables -t filter -X
+echo "[*] Vidage des regles et des tables : [OK]"
 
-iptables -A INPUT -i $LO -j ACCEPT
-iptables -A OUTPUT -o $LO -j ACCEPT
+# Interdire toutes connexions entrantes et sortantes
+iptables -t filter -P INPUT DROP
+iptables -t filter -P FORWARD DROP
+iptables -t filter -P OUTPUT DROP
+echo "[*] Interdire toutes les connexions entrantes et sortantes : [OK]"
 
-iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Ne pas casser les connexions etablies
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+echo "[*] Ne pas casser les connexions établies : [OK]"
 
+# On nat toutes les requettes passant par le DMZ
 iptables -t nat -A POSTROUTING -j MASQUERADE
+echo "[*] NAT établie : [OK]"
 
 ###############################################################################
 # 						NOUVELLE REGLES								  
 ###############################################################################
 
-# DNS TCP
-iptables -A FORWARD -m state --state NEW -p tcp -d "8.8.8.8" --dport 53 --syn -j ACCEPT
-iptables -A INPUT -m state --state NEW -p tcp -d "8.8.8.8" --dport 53 --syn -j ACCEPT
-iptables -A OUTPUT -m state --state NEW -p tcp -d "8.8.8.8" --dport 53 --syn -j ACCEPT
+# Autoriser loopback
+iptables -t filter -A INPUT -i lo -j ACCEPT
+iptables -t filter -A OUTPUT -o lo -j ACCEPT
+echo "[*] Loopback autorisé : [OK]"
 
-# DNS UDP
-iptables -A FORWARD -m state --state NEW -p udp -d "8.8.8.8" --dport 53 -j ACCEPT
-iptables -A INPUT -m state --state NEW -p udp -d "8.8.8.8" --dport 53 -j ACCEPT
-iptables -A OUTPUT -m state --state NEW -p udp -d "8.8.8.8" --dport 53 -j ACCEPT
+# Autoriser SSH
+iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT
+echo "[*] SSH autorisé : [OK]"
+ 
+# Autoriser DNS
+iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
+iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 53 -j ACCEPT
+iptables -t filter -A INPUT -p udp --dport 53 -j ACCEPT
+echo "[*] DNS autorisé : [OK]"
 
-# HTTP
-iptables -A FORWARD -m state --state NEW -p tcp --dport 80 --syn -j ACCEPT #HTTP
-iptables -A INPUT -m state --state NEW -p tcp --dport 80 --syn -j ACCEPT #HTTP
-iptables -A OUTPUT -m state --state NEW -p tcp --dport 80 --syn -j ACCEPT #HTTP
+# Autoriser HTTP et HTTPS
+iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 8443 -j ACCEPT
+echo "[*] HTTP(S) autorisé : [OK]"
 
-#HTTPS
-iptables -A FORWARD -m state --state NEW -p tcp --dport 443 --syn -j ACCEPT
-iptables -A INPUT -m state --state NEW -p tcp --dport 443 --syn -j ACCEPT
-iptables -A OUTPUT -m state --state NEW -p tcp --dport 443 --syn -j ACCEPT
-
-# SSH
-iptables -A FORWARD -m state --state NEW -p tcp --dport 22 --syn -j ACCEPT #SSH
-iptables -A INPUT -m state --state NEW -p tcp --dport 22 --syn -j ACCEPT #SSH
-iptables -A OUTPUT -m state --state NEW -p tcp --dport 22 --syn -j ACCEPT #SSH
-
-# VPN TCP
+# Autoriser VPN
 iptables -A FORWARD -m state --state NEW -p tcp --dport 1194 --syn -j ACCEPT #VPN
 iptables -A INPUT -m state --state NEW -p tcp --dport 1194 --syn -j ACCEPT #VPN
 iptables -A OUTPUT -m state --state NEW -p tcp --dport 1194 --syn -j ACCEPT #VPN
-
-# VPN UDP
 iptables -A FORWARD -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
 iptables -A INPUT -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
 iptables -A OUTPUT -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
+echo "[*] VPN autorisé : [OK]"
 
-#On autorise le ping
-iptables -A INPUT -p icmp -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-iptables -A OUTPUT -p icmp -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -p icmp -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+cp /home/ubuntu/FIREWALL/default_firewall.sh /opt/firewall
 
 echo "[!] Filtrage en place !"
 iptables -L -v
