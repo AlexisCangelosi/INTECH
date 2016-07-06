@@ -13,6 +13,8 @@
 NET="eth0"
 NET_IP="192.168.0.10"
 
+default_gateway="route add default gw 192.168.1.16"
+
 ###############################################################################
 # 								SCRIPT									  
 ###############################################################################
@@ -25,6 +27,10 @@ clear
 ###############################################################################
 
 echo "[*] Initialisation du firewall :"
+
+# Ajout de la route par default
+$default_gateway
+echo "[*] Mise en place de la route par default : [OK]"
 
 # Vidage des tables et des regles personnelles
 iptables -t filter -F
@@ -44,8 +50,7 @@ iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 echo "[*] Ne pas casser les connexions établies : [OK]"
 
 # On nat toutes les requettes passant par le DMZ
-iptables -t nat -A POSTROUTING -j MASQUERADE
-echo "[*] NAT établie : [OK]"
+#iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE
 
 ###############################################################################
 # 						NOUVELLE REGLES								  

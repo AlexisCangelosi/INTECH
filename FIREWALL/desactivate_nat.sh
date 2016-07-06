@@ -3,15 +3,9 @@
 # Auteur : Alexis Cangelosi
 # Promotion : ITI14M SR
 # Theme : Evaluation de fin de semestre
-# Titre : Activation NAT
+# Titre : Désactivation NAT
 ###############################################################################
 
-###############################################################################
-# 								VARIABLES									  
-###############################################################################
-
-NAT="iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE"
-path="/opt/firewall"
 
 ###############################################################################
 # 								SCRIPT									  
@@ -21,15 +15,15 @@ path="/opt/firewall"
 clear
 
 echo "###########################################################################"
-echo "MISE EN PLACE DU NAT !"
+echo "DESACTIVATION DU NAT !"
 echo "###########################################################################"
 
-find $path/default_firewall.sh -type f -exec sed -i 's/#iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE/$NAT/g' {} \+
+iptables -t nat -D POSTROUTING 1
+
+echo "[*] NAT desactivé : [OK]"
 
 .$path/default_firewall.sh
 .$path/filtrage_in_progress.sh
 .$path/redirect_in_progress.sh
-
-echo "[*] NAT établie : [OK]"
 
 exit 0
