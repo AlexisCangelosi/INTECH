@@ -48,24 +48,19 @@ case "$choix" in
 	case "$choix" in
 
 	1)	clear
-		$default_pki/add_ca_fille.sh
-	;;
+		$default_pki/add_ca_fille.sh;;
 	2)	clear
-		$default_pki/del_ca_fille.sh
-	;;
+		$default_pki/del_ca_fille.sh;;
 	3)	clear
-		$default_pki/add_cert.sh
-	;;
+		$default_pki/add_cert.sh;;
 	4)	clear
-		$default_pki/del_cert.sh
-	;;
+		$default_pki/del_cert.sh;;
 	*)	echo "[!] Mauvaise saisie !"
 		echo "[1] Add CA FILLE"
 		echo "[2] Del CA FILLE"
 		echo "[3] Add Certificat"
-		echo "[4] Del Certificat"
-   	;;
-   esac
+		echo "[4] Del Certificat";;
+    esac;;
 	
 	
 2)	clear
@@ -117,15 +112,11 @@ case "$choix" in
 		echo "[6] Desactivate Server"
 		echo "[7] Activate Client-to-Client"
 		echo "[8] Desactivate Client-to-Client"
-   	;;
-   esac
-	
-3)	clear
-	;;
+
+3)	clear;;
 
 *)	echo "[!] Mauvaise saisie !"
 	echo "[1] PKI"
 	echo "[2] VPN"
-	echo "[3] Firewall"
-	;;
-esac
+	echo "[3] Firewall";;
+esac;;
