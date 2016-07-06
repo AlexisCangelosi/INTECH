@@ -66,6 +66,7 @@ case "$choix" in
 		echo "[4] Del Certificat"
    		;;
 	esac
+	
 2)	clear
 	echo "###########################################################################"
    	echo "VPN"
