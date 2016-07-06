@@ -14,7 +14,6 @@ root_vpn="/opt/vpn/x509"
 root_openvpn="/etc/openvpn"
 root_install="/usr/share/easy-rsa/"
 conf_name="serveur_x509.conf"
-client_name="None"
 server_name="None"
 server_port="None"
 
@@ -77,8 +76,8 @@ proto udp
 dev tun1
 
 ca ca.crt
-cert server-exam.crt
-key server-exam.key
+cert $server_name.crt
+key $server_name.key
 
 dh dh2048.pem
 
