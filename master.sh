@@ -45,16 +45,16 @@ if [ $choix -eq 1 ] ; then
 	echo "[4] Del Certificat"
 	read -p "-> " choix
 
-    if $choix -eq 1 ; then
+    if [ $choix -eq 1 ] ; then
 		clear
 		$default_pki/add_ca_fille.sh
-	elif $choix -eq 2 ; then
+	elif [ $choix -eq 2 ] ; then
 		clear
 		$default_pki/del_ca_fille.sh
-	elif $choix -eq 3 ; then
+	elif [ $choix -eq 3 ] ; then
 		clear
 		$default_pki/add_cert.sh
-	elif $choix -eq 4 ; then
+	elif [ $choix -eq 4 ] ; then
 		clear
 		$default_pki/del_cert.sh
 	else
@@ -82,28 +82,28 @@ elif [ $choix -eq 2 ] ; then
 	echo "[8] Desactivate Client-to-Client"
 	read -p "-> " choix
 
-	if $choix -eq 1 ; then
+	if [ $choix -eq 1 ] ; then
 		clear
 		$default_vpn/add_x509_server.sh
-	elif $choix -eq 2 ; then
+	elif [ $choix -eq 2 ] ; then
 		clear
 		$default_vpn/add_x509_client.sh
-	elif $choix -eq 3 ; then
+	elif [ $choix -eq 3 ] ; then
 		clear
 		$default_vpn/activate_server.sh
-	elif $choix -eq 4 ; then
+	elif [ $choix -eq 4 ] ; then
 		clear
 		$default_vpn/del_x509_serveur.sh
-	elif $choix -eq 5 ; then
+	elif [ $choix -eq 5 ] ; then
 		clear
 		$default_vpn/del_x509_client.sh
-	elif $choix -eq 6 ; then
+	elif [ $choix -eq 6 ] ; then
 		clear
 		$default_vpn/desactivate_server.sh
-	elif $choix -eq 7 ; then
+	elif [ $choix -eq 7 ] ; then
 		clear
 		$default_vpn/activate_ctc.sh
-	elif $choix -eq 8 ; then
+	elif [ $choix -eq 8 ] ; then
 		clear
 		$default_vpn/desactivate_ctc.sh
 	else
