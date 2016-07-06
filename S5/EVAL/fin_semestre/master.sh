@@ -45,22 +45,24 @@ if "$choix" == "1" ; then
 	echo "[4] Del Certificat"
 	read -p "-> " choix
 
-	case "$choix" in
-
-	1)	clear
-		$default_pki/add_ca_fille.sh;;
-	2)	clear
-		$default_pki/del_ca_fille.sh;;
-	3)	clear
-		$default_pki/add_cert.sh;;
-	4)	clear
-		$default_pki/del_cert.sh;;
-	*)	echo "[!] Mauvaise saisie !"
+    if "$choix" == "1" ; then
+		clear
+		$default_pki/add_ca_fille.sh
+	elif "$choix" == "2" ; then
+		clear
+		$default_pki/del_ca_fille.sh
+	elif "$choix" == "3" ; then
+		clear
+		$default_pki/add_cert.sh
+	elif "$choix" == "4" ; then
+		clear
+		$default_pki/del_cert.sh
+	else
+		echo "[!] Mauvaise saisie !"
 		echo "[1] Add CA FILLE"
 		echo "[2] Del CA FILLE"
 		echo "[3] Add Certificat"
-		echo "[4] Del Certificat";;
-    esac;;
+		echo "[4] Del Certificat"
 	
 elif "$choix" == "2" ; then	
 	
