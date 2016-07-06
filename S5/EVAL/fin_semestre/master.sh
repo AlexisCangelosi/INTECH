@@ -32,7 +32,7 @@ echo "[2] VPN"
 echo "[3] Firewall"
 read -p "-> " choix
 
-if "$choix" == "1" ; then
+if "$choix" -eq "1" ; then
 
 	clear
    	echo "###########################################################################"
@@ -45,16 +45,16 @@ if "$choix" == "1" ; then
 	echo "[4] Del Certificat"
 	read -p "-> " choix
 
-    if "$choix" == "1" ; then
+    if "$choix" -eq "1" ; then
 		clear
 		$default_pki/add_ca_fille.sh
-	elif "$choix" == "2" ; then
+	elif "$choix" -eq "2" ; then
 		clear
 		$default_pki/del_ca_fille.sh
-	elif "$choix" == "3" ; then
+	elif "$choix" -eq "3" ; then
 		clear
 		$default_pki/add_cert.sh
-	elif "$choix" == "4" ; then
+	elif "$choix" -eq "4" ; then
 		clear
 		$default_pki/del_cert.sh
 	else
@@ -65,7 +65,7 @@ if "$choix" == "1" ; then
 		echo "[4] Del Certificat"
 	fi
 	
-elif "$choix" == "2" ; then	
+elif "$choix" -eq "2" ; then	
 	
 	clear
 	echo "###########################################################################"
@@ -82,28 +82,28 @@ elif "$choix" == "2" ; then
 	echo "[8] Desactivate Client-to-Client"
 	read -p "-> " choix
 
-	if "$choix" == "1" ; then
+	if "$choix" -eq "1" ; then
 		clear
 		$default_vpn/add_x509_server.sh
-	elif "$choix" == "2" ; then
+	elif "$choix" -eq "2" ; then
 		clear
 		$default_vpn/add_x509_client.sh
-	elif "$choix" == "3" ; then
+	elif "$choix" -eq "3" ; then
 		clear
 		$default_vpn/activate_server.sh
-	elif "$choix" == "4" ; then
+	elif "$choix" -eq "4" ; then
 		clear
 		$default_vpn/del_x509_serveur.sh
-	elif "$choix" == "5" ; then
+	elif "$choix" -eq "5" ; then
 		clear
 		$default_vpn/del_x509_client.sh
-	elif "$choix" == "6" ; then
+	elif "$choix" -eq "6" ; then
 		clear
 		$default_vpn/desactivate_server.sh
-	elif "$choix" == "7" ; then
+	elif "$choix" -eq "7" ; then
 		clear
 		$default_vpn/activate_ctc.sh
-	elif "$choix" == "8" ; then
+	elif "$choix" -eq "8" ; then
 		clear
 		$default_vpn/desactivate_ctc.sh
 	else
@@ -118,7 +118,7 @@ elif "$choix" == "2" ; then
 		echo "[8] Desactivate Client-to-Client"
 	fi
 
-elif "$choix" == "3" ; then
+elif "$choix" -eq "3" ; then
 	
 	clear
 	echo "###########################################################################"
