@@ -83,33 +83,32 @@ case "$choix" in
 	echo "[8] Desactivate Client-to-Client"
 	read -p "-> " choix
 
-	case "$choix" in
-
-	1)	clear
+	if "$choix" == "1" ; then
+		clear
 		$default_vpn/add_x509_server.sh
-	;;
-	2)	clear
+	elif "$choix" == "2" ; then
+		clear
 		$default_vpn/add_x509_client.sh
-	;;
-	3)	clear
+	elif "$choix" == "3" ; then
+		clear
 		$default_vpn/activate_server.sh
-	;;
-	4)	clear
+	elif "$choix" == "4" ; then
+		clear
 		$default_vpn/del_x509_serveur.sh
-	;;
-	5)	clear
+	elif "$choix" == "5" ; then
+		clear
 		$default_vpn/del_x509_client.sh
-	;;
-	6)	clear
+	elif "$choix" == "6" ; then
+		clear
 		$default_vpn/desactivate_server.sh
-	;;
-	7)	clear
+	elif "$choix" == "7" ; then
+		clear
 		$default_vpn/activate_ctc.sh
-	;;
-	8)	clear
+	elif "$choix" == "8" ; then
+		clear
 		$default_vpn/desactivate_ctc.sh
-	;;
-	*)	echo "[!] Mauvaise saisie !"
+	else
+		echo "[!] Mauvaise saisie !"
 		echo "[1] Add Server"
 		echo "[2] Add Client"
 		echo "[3] Activate Server"
