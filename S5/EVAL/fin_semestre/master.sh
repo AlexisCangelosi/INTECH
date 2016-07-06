@@ -64,8 +64,8 @@ case "$choix" in
 		echo "[2] Del CA FILLE"
 		echo "[3] Add Certificat"
 		echo "[4] Del Certificat"
-   		;;
-	esac
+   	;;
+	
 	
 2)	clear
 	echo "###########################################################################"
@@ -117,10 +117,8 @@ case "$choix" in
 		echo "[6] Desactivate Server"
 		echo "[7] Activate Client-to-Client"
 		echo "[8] Desactivate Client-to-Client"
-   		;;
-	esac
-	;;
-
+   	;;
+	
 3)	clear
 	;;
 
