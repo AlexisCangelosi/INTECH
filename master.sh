@@ -10,9 +10,9 @@
 # 								VARIABLES									  
 ###############################################################################
 
-default_pki="/home/ubuntu/INTECH/S5/EVAL/fin_semestre/PKI"
-default_vpn="/home/ubuntu/INTECH/S5/EVAL/fin_semestre/VPN/x509"
-default_firewall="/home/ubuntu/INTECH/S5/EVAL/fin_semestre/FIREWALL"
+default_pki="/home/ubuntu/INTECH/PKI"
+default_vpn="/home/ubuntu/INTECH/VPN/x509"
+default_firewall="/home/ubuntu/INTECH/FIREWALL"
 ###############################################################################
 # 								SCRIPT									  
 ###############################################################################
