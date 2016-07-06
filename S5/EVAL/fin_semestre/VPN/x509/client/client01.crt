@@ -1,0 +1,98 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=FR, ST=IDF, L=Ivry sur Seine, O=CantBreakIt, OU=CBI, CN=CantBreakIt CA/name=EasyRSA/emailAddress=cangelosi@cantbreakit.fr
+        Validity
+            Not Before: Jul  6 07:51:17 2016 GMT
+            Not After : Jul  4 07:51:17 2026 GMT
+        Subject: C=FR, ST=IDF, L=Ivry sur Seine, O=CantBreakIt, OU=CBI, CN=client01/name=EasyRSA/emailAddress=cangelosi@cantbreakit.fr
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:e5:b9:01:5b:8c:42:ac:e5:cb:ac:96:51:0a:ef:
+                    60:fa:b8:c2:cc:8c:84:03:a2:14:da:a1:89:3c:92:
+                    31:ef:4c:07:8a:7f:cf:7a:a2:4f:c0:6f:d5:cf:46:
+                    57:95:0e:96:45:18:da:15:ab:73:55:53:d8:9f:7e:
+                    8e:f4:cb:73:1e:b4:c9:35:7a:da:19:c8:d2:5d:ed:
+                    00:2d:25:8d:72:55:46:e1:34:a1:c6:0b:fa:a9:bf:
+                    3a:9b:88:50:06:d7:38:81:c7:c2:06:58:f0:d5:3c:
+                    c4:d5:a2:83:a7:d4:54:c6:c2:5b:96:71:da:1c:25:
+                    40:5d:fd:3a:9c:50:09:29:f8:e3:b0:a6:e0:de:01:
+                    5d:81:a6:81:cb:9f:77:5d:95:86:44:b7:6e:33:4f:
+                    0c:7a:80:e7:57:36:b2:a7:a0:d5:46:1c:c6:85:01:
+                    b6:34:41:d6:b8:35:9b:27:e1:ad:1b:e4:52:30:b8:
+                    04:9f:35:85:1d:6a:f4:5a:e2:fb:17:ae:a8:a0:66:
+                    32:0a:44:03:66:6f:14:a4:50:63:f5:cf:7d:07:ca:
+                    01:d0:de:28:65:8c:14:63:c9:46:2f:3f:90:15:0e:
+                    4f:c8:2e:fb:46:0e:9c:64:f8:51:2e:b1:94:61:b6:
+                    46:8b:c9:c4:44:46:e8:b7:ad:a3:f0:d2:98:06:7d:
+                    b5:b9
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                Easy-RSA Generated Certificate
+            X509v3 Subject Key Identifier: 
+                41:04:50:AE:62:2D:6E:2F:6B:9C:B0:00:0C:95:2A:06:F8:E1:4B:CD
+            X509v3 Authority Key Identifier: 
+                keyid:13:B7:3A:19:79:1B:B5:CE:74:59:ED:79:CF:48:E0:AF:0E:FD:78:EE
+                DirName:/C=FR/ST=IDF/L=Ivry sur Seine/O=CantBreakIt/OU=CBI/CN=CantBreakIt CA/name=EasyRSA/emailAddress=cangelosi@cantbreakit.fr
+                serial:E0:0B:8F:19:8B:8B:8B:62
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+            X509v3 Subject Alternative Name: 
+                DNS:client01
+    Signature Algorithm: sha256WithRSAEncryption
+         10:f1:d3:fd:bf:84:ad:c8:7b:4b:ca:8c:17:17:34:b5:25:d4:
+         5e:10:90:84:9c:5b:f2:84:24:b7:11:d8:3a:61:02:4f:0f:6b:
+         01:31:c0:5e:16:a4:bb:15:9c:99:3a:e0:33:82:db:e5:b8:5a:
+         51:f5:42:c4:0d:96:ce:1d:3f:cd:0b:18:e4:53:68:ee:31:91:
+         8e:4b:6c:2c:58:b5:09:35:bc:56:6f:fd:a8:b3:fc:e6:c2:77:
+         49:34:c7:42:b2:61:eb:ba:03:c1:2e:60:f9:c7:e2:fd:1e:87:
+         ba:b1:1a:10:ef:08:74:27:a3:98:46:0e:85:9e:b0:28:0e:87:
+         99:ab:92:3b:56:8d:f7:84:e1:37:6e:4a:77:09:9e:88:22:54:
+         e2:33:48:35:f2:9c:12:0c:47:95:4a:42:e1:13:1b:2c:1e:f5:
+         ea:93:dd:2e:e0:a4:a5:3d:a3:02:f0:46:0a:6a:af:ac:a1:a9:
+         24:0d:5e:07:10:01:68:e8:11:0e:63:51:b6:15:76:e6:3f:f5:
+         7b:be:3d:8f:c0:ce:83:b4:06:f7:6d:9a:54:1f:d7:47:7f:1d:
+         fb:fd:f5:2d:86:ae:ef:fa:ca:77:05:3c:15:16:d4:f8:73:83:
+         91:03:85:f3:98:8b:8b:8c:03:d5:55:8e:1e:b4:6a:f5:c0:f9:
+         9e:68:44:e5
+-----BEGIN CERTIFICATE-----
+MIIFSTCCBDGgAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBrDELMAkGA1UEBhMCRlIx
+DDAKBgNVBAgTA0lERjEXMBUGA1UEBxMOSXZyeSBzdXIgU2VpbmUxFDASBgNVBAoT
+C0NhbnRCcmVha0l0MQwwCgYDVQQLEwNDQkkxFzAVBgNVBAMTDkNhbnRCcmVha0l0
+IENBMRAwDgYDVQQpEwdFYXN5UlNBMScwJQYJKoZIhvcNAQkBFhhjYW5nZWxvc2lA
+Y2FudGJyZWFraXQuZnIwHhcNMTYwNzA2MDc1MTE3WhcNMjYwNzA0MDc1MTE3WjCB
+pjELMAkGA1UEBhMCRlIxDDAKBgNVBAgTA0lERjEXMBUGA1UEBxMOSXZyeSBzdXIg
+U2VpbmUxFDASBgNVBAoTC0NhbnRCcmVha0l0MQwwCgYDVQQLEwNDQkkxETAPBgNV
+BAMTCGNsaWVudDAxMRAwDgYDVQQpEwdFYXN5UlNBMScwJQYJKoZIhvcNAQkBFhhj
+YW5nZWxvc2lAY2FudGJyZWFraXQuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDluQFbjEKs5cusllEK72D6uMLMjIQDohTaoYk8kjHvTAeKf896ok/A
+b9XPRleVDpZFGNoVq3NVU9iffo70y3MetMk1etoZyNJd7QAtJY1yVUbhNKHGC/qp
+vzqbiFAG1ziBx8IGWPDVPMTVooOn1FTGwluWcdocJUBd/TqcUAkp+OOwpuDeAV2B
+poHLn3ddlYZEt24zTwx6gOdXNrKnoNVGHMaFAbY0Qda4NZsn4a0b5FIwuASfNYUd
+avRa4vsXrqigZjIKRANmbxSkUGP1z30HygHQ3ihljBRjyUYvP5AVDk/ILvtGDpxk
++FEusZRhtkaLycRERui3raPw0pgGfbW5AgMBAAGjggF4MIIBdDAJBgNVHRMEAjAA
+MC0GCWCGSAGG+EIBDQQgFh5FYXN5LVJTQSBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUw
+HQYDVR0OBBYEFEEEUK5iLW4va5ywAAyVKgb44UvNMIHhBgNVHSMEgdkwgdaAFBO3
+Ohl5G7XOdFntec9I4K8O/XjuoYGypIGvMIGsMQswCQYDVQQGEwJGUjEMMAoGA1UE
+CBMDSURGMRcwFQYDVQQHEw5JdnJ5IHN1ciBTZWluZTEUMBIGA1UEChMLQ2FudEJy
+ZWFrSXQxDDAKBgNVBAsTA0NCSTEXMBUGA1UEAxMOQ2FudEJyZWFrSXQgQ0ExEDAO
+BgNVBCkTB0Vhc3lSU0ExJzAlBgkqhkiG9w0BCQEWGGNhbmdlbG9zaUBjYW50YnJl
+YWtpdC5mcoIJAOALjxmLi4tiMBMGA1UdJQQMMAoGCCsGAQUFBwMCMAsGA1UdDwQE
+AwIHgDATBgNVHREEDDAKgghjbGllbnQwMTANBgkqhkiG9w0BAQsFAAOCAQEAEPHT
+/b+Erch7S8qMFxc0tSXUXhCQhJxb8oQktxHYOmECTw9rATHAXhakuxWcmTrgM4Lb
+5bhaUfVCxA2Wzh0/zQsY5FNo7jGRjktsLFi1CTW8Vm/9qLP85sJ3STTHQrJh67oD
+wS5g+cfi/R6HurEaEO8IdCejmEYOhZ6wKA6HmauSO1aN94ThN25KdwmeiCJU4jNI
+NfKcEgxHlUpC4RMbLB716pPdLuCkpT2jAvBGCmqvrKGpJA1eBxABaOgRDmNRthV2
+5j/1e749j8DOg7QG922aVB/XR38d+/31LYau7/rKdwU8FRbU+HODkQOF85iLi4wD
+1VWOHrRq9cD5nmhE5Q==
+-----END CERTIFICATE-----
