@@ -84,7 +84,7 @@ iptables -A INPUT -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
 iptables -A OUTPUT -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
 echo "[*] VPN autorisé : [OK]"
 
-cp /home/ubuntu/FIREWALL/default_firewall.sh /opt/firewall
+cp /home/ubuntu/INTECH/FIREWALL/default_firewall.sh /opt/firewall
 
 echo "[!] Filtrage en place !"
 iptables -L -v
