@@ -61,10 +61,10 @@ iptables -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT
 echo "[*] SSH autorisé : [OK]"
  
 # Autoriser DNS
-iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
-iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
-iptables -t filter -A INPUT -p tcp --dport 53 -j ACCEPT
-iptables -t filter -A INPUT -p udp --dport 53 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 53 -d 8.8.8.8 -j ACCEPT
+iptables -t filter -A OUTPUT -p udp --dport 53 -d 8.8.8.8 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 53 -d 8.8.8.8 -j ACCEPT
+iptables -t filter -A INPUT -p udp --dport 53 -d 8.8.8.8 -j ACCEPT
 echo "[*] DNS autorisé : [OK]"
 
 # Autoriser HTTP et HTTPS
