@@ -41,11 +41,11 @@ read -p "[*] => " port_dst_int
 
 
 if [ $proto -eq "udp" ] ; then
-	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip_dst:$port_dst_int"
+	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip:$port_dst_int"
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p $proto --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
 elif [ $proto -eq "tcp" ] ; then
-	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip_dst:$port_dst_int"
+	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip:$port_dst_int"
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p $proto --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
 else 
@@ -57,9 +57,9 @@ echo $bash > $path/redirect_in_progress.sh
 echo $rule_1 >> $path/redirect_in_progress.sh
 echo $rule_2 >> $path/redirect_in_progress.sh
 
-.$path/default_firewall.sh
-.$path/filtrage_in_progress.sh
-.$path/redirect_in_progress.sh
+. $path/default_firewall.sh
+. $path/filtrage_in_progress.sh
+. $path/redirect_in_progress.sh
 
 echo "[!] Règles mise en place :"
 echo $rule_1

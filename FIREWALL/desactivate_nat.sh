@@ -23,8 +23,8 @@ find $path/default_firewall.sh -type f -exec sed -i 's/iptables -t nat -A POSTRO
 
 echo "[*] NAT desactivé : [OK]"
 
-.$path/default_firewall.sh
-.$path/filtrage_in_progress.sh
-.$path/redirect_in_progress.sh
+. $path/default_firewall.sh
+. $path/filtrage_in_progress.sh
+. $path/redirect_in_progress.sh
 
 exit 0

@@ -56,9 +56,9 @@ fi
 
 find $path/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
 
-.$path/default_firewall.sh
-.$path/filtrage_in_progress.sh
-.$path/redirect_in_progress.sh
+. $path/default_firewall.sh
+. $path/filtrage_in_progress.sh
+. $path/redirect_in_progress.sh
 
 echo "[!] Règle supprimée :"
 echo $rule

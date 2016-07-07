@@ -57,9 +57,9 @@ fi
 echo $bash > $path/filtrage_in_progress.sh
 echo $rule >> $path/filtrage_in_progress.sh
 
-.$path/default_firewall.sh
-.$path/filtrage_in_progress.sh
-.$path/redirect_in_progress.sh
+. $path/default_firewall.sh
+. $path/filtrage_in_progress.sh
+. $path/redirect_in_progress.sh
 
 echo "[!] Règle mise en place :"
 echo $rule

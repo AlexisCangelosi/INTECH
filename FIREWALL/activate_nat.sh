@@ -26,9 +26,9 @@ echo "##########################################################################
 
 find $path/default_firewall.sh -type f -exec sed -i 's/#iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE/$NAT/g' {} \+
 
-.$path/default_firewall.sh
-.$path/filtrage_in_progress.sh
-.$path/redirect_in_progress.sh
+. $path/default_firewall.sh
+. $path/filtrage_in_progress.sh
+. $path/redirect_in_progress.sh
 
 echo "[*] NAT établie : [OK]"
 
