@@ -24,7 +24,7 @@ clear
 # 						PARAMETRE PAR DEFAUT									  
 ###############################################################################
 
-echo "[*] Initialisation du firewall :"
+echo "[*] Initialisation du firewall"
 
 # Vidage des tables et des regles personnelles
 iptables -t filter -F
