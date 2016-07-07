@@ -13,8 +13,6 @@
 NET="eth0"
 NET_IP="192.168.0.10"
 
-default_gateway="route add default gw 192.168.1.16"
-
 ###############################################################################
 # 								SCRIPT									  
 ###############################################################################
@@ -27,10 +25,6 @@ clear
 ###############################################################################
 
 echo "[*] Initialisation du firewall :"
-
-# Ajout de la route par default
-$default_gateway
-echo "[*] Mise en place de la route par default : [OK]"
 
 # Vidage des tables et des regles personnelles
 iptables -t filter -F
