@@ -21,6 +21,7 @@ echo "DESACTIVATION DU NAT !"
 echo "###########################################################################"
 
 find $path/default_firewall.sh -type f -exec sed -i 's/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE/$NAT/g' {} \+
+iptables -t nat -D POSTROUTING 1
 
 echo "[*] NAT desactivé : [OK]"
 
