@@ -6,6 +6,7 @@
 # Titre : Désactivation NAT
 ###############################################################################
 
+NAT="#iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE"
 
 ###############################################################################
 # 								SCRIPT									  
@@ -18,7 +19,7 @@ echo "##########################################################################
 echo "DESACTIVATION DU NAT !"
 echo "###########################################################################"
 
-iptables -t nat -D POSTROUTING 1
+find $path/default_firewall.sh -type f -exec sed -i 's/iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE/$NAT/g' {} \+
 
 echo "[*] NAT desactivé : [OK]"
 
