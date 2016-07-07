@@ -10,9 +10,6 @@
 # 								VARIABLE									  
 ###############################################################################
 
-NET="eth0"
-NET_IP="192.168.0.10"
-
 path="/opt/firewall"
 bash="#!/bin/bash"
 
@@ -47,7 +44,7 @@ iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 echo "[*] Ne pas casser les connexions établies : [OK]"
 
 # On nat toutes les requettes passant par le DMZ
-#iptables -t nat -A POSTROUTING -o $NET -j MASQUERADE
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 ###############################################################################
 # 						NOUVELLE REGLES								  
