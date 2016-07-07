@@ -90,6 +90,7 @@ echo "[*] VPN autorisé : [OK]"
 cp /home/ubuntu/INTECH/FIREWALL/default_firewall.sh /opt/firewall
 echo $bash > $path/redirect_in_progress.sh
 echo $bash > $path/filtrage_in_progress.sh
+chmod 775 $path/*.sh
 
 
 echo "[!] Filtrage en place !"
