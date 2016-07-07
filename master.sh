@@ -57,7 +57,7 @@ if [ $choix -eq 1 ] ; then
 		clear
 		$default_pki/del_cert.sh
 	else
-		exit
+		exit 0
 	fi
 	
 elif [ $choix -eq 2 ] ; then	
@@ -101,7 +101,7 @@ elif [ $choix -eq 2 ] ; then
 		clear
 		$default_vpn/desactivate_ctc.sh
 	else
-		exit
+		exit 0
 	fi
 
 elif [ $choix -eq 3 ] ; then
@@ -137,8 +137,8 @@ elif [ $choix -eq 3 ] ; then
 		clear
 		$default_firewall/desactivate_nat.sh
 	else
-		exit
+		exit 0
 
 else
-	exit
+	exit 0
 fi
