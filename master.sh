@@ -138,5 +138,4 @@ elif [ $choix -eq 3 ] ; then
 		$default_firewall/desactivate_nat.sh
 	else
 		exit 0
-
 fi
