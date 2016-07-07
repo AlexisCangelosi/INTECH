@@ -13,6 +13,8 @@
 NET="eth0"
 NET_IP="192.168.0.10"
 
+bash="#!/bin/bash \n"
+
 ###############################################################################
 # 								SCRIPT									  
 ###############################################################################
@@ -85,6 +87,9 @@ iptables -A OUTPUT -m state --state NEW -p udp --dport 1194 -j ACCEPT #VPN
 echo "[*] VPN autorisé : [OK]"
 
 cp /home/ubuntu/INTECH/FIREWALL/default_firewall.sh /opt/firewall
+echo $bash > $path/redirect_in_progress.sh
+echo $bash > $path/filtrage_in_progress.sh
+
 
 echo "[!] Filtrage en place !"
 iptables -L -v
