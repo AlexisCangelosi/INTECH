@@ -59,6 +59,11 @@ echo "[*] Loopback autorisé : [OK]"
 iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT
 echo "[*] SSH autorisé : [OK]"
+
+# Autoriser le ping
+iptables -t filter -A INPUT -p icmp -j ACCEPT
+iptables -t filter -A OUTPUT -p icmp -j ACCEPT
+echo "[*] Ping autorisé : [OK]"
  
 # Autoriser DNS
 iptables -t filter -A OUTPUT -p tcp --dport 53 -d 8.8.8.8 -j ACCEPT
