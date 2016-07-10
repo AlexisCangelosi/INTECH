@@ -60,6 +60,7 @@ echo $rule_2 >> $path/redirect_in_progress.sh
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
 . $path/redirect_in_progress.sh
+. $path/vpn_in_progress.sh
 
 echo "[!] Règles mise en place :"
 echo $rule_1

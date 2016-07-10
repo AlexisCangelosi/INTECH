@@ -28,5 +28,6 @@ echo "[*] NAT desactivé : [OK]"
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
 . $path/redirect_in_progress.sh
+. $path/vpn_in_progress.sh
 
 exit 0
