@@ -56,8 +56,8 @@ else
 fi
 
 
-echo $rule_1 >> $path/redirect_in_progress.sh
-echo $rule_2 >> $path/redirect_in_progress.sh
+echo $rule_1 >> /opt/firewall/redirect_in_progress.sh
+echo $rule_2 >> /opt/firewall/redirect_in_progress.sh
 
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
