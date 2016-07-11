@@ -77,7 +77,7 @@ else
 fi
 
 echo $rule >> FIREWALL/filtrage_in_progress.sh
-cp FIREWALL/filtrage_in_progress.sh /opt/firewall/filtrage_in_progress.sh
+sudo cp FIREWALL/filtrage_in_progress.sh /opt/firewall/filtrage_in_progress.sh
 
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
