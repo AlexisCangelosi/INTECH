@@ -46,16 +46,16 @@ if [ $choix -eq 1 ]; then
 
     if [ $choix -eq 1 ]; then
 		clear
-		$default_pki/add_ca_fille.sh
+		. $default_pki/add_ca_fille.sh
 	elif [ $choix -eq 2 ]; then
 		clear
-		$default_pki/del_ca_fille.sh
+		. $default_pki/del_ca_fille.sh
 	elif [ $choix -eq 3 ]; then
 		clear
-		$default_pki/add_cert.sh
+		. $default_pki/add_cert.sh
 	elif [ $choix -eq 4 ]; then
 		clear
-		$default_pki/del_cert.sh
+		. $default_pki/del_cert.sh
 	else
 		exit 0
 	fi
@@ -78,28 +78,28 @@ elif [ $choix -eq 2 ] ; then
 
 	if [ $choix -eq 1 ]; then
 		clear
-		$default_vpn/add_x509_server.sh
+		. $default_vpn/add_x509_server.sh
 	elif [ $choix -eq 2 ]; then
 		clear
-		$default_vpn/add_x509_client.sh
+		. $default_vpn/add_x509_client.sh
 	elif [ $choix -eq 3 ]; then
 		clear
-		$default_vpn/activate_server.sh
+		. $default_vpn/activate_server.sh
 	elif [ $choix -eq 4 ]; then
 		clear
-		$default_vpn/del_x509_serveur.sh
+		. $default_vpn/del_x509_serveur.sh
 	elif [ $choix -eq 5 ]; then
 		clear
-		$default_vpn/del_x509_client.sh
+		. $default_vpn/del_x509_client.sh
 	elif [ $choix -eq 6 ]; then
 		clear
-		$default_vpn/desactivate_server.sh
+		. $default_vpn/desactivate_server.sh
 	elif [ $choix -eq 7 ]; then
 		clear
-		$default_vpn/activate_ctc.sh
+		. $default_vpn/activate_ctc.sh
 	elif [ $choix -eq 8 ]; then
 		clear
-		$default_vpn/desactivate_ctc.sh
+		. $default_vpn/desactivate_ctc.sh
 	else
 		exit 0
 	fi
@@ -120,22 +120,22 @@ elif [ $choix -eq 3 ]; then
 
 	if [ $choix -eq 1 ]; then
 		clear
-		$default_firewall/add_redirect_rules.sh
+		. $default_firewall/add_redirect_rules.sh
 	elif [ $choix -eq 2 ]; then
 		clear
-		$default_firewall/add_filtrage_rules.sh
+		. $default_firewall/add_filtrage_rules.sh
 	elif [ $choix -eq 3 ]; then
 		clear
-		$default_firewall/activate_nat.sh
+		. $default_firewall/activate_nat.sh
 	elif [ $choix -eq 4 ]; then
 		clear
-		$default_firewall/del_redirect_rules.sh
+		. $default_firewall/del_redirect_rules.sh
 	elif [ $choix -eq 5 ]; then
 		clear
-		$default_firewall/del_filtrage_rules.sh
+		. $default_firewall/del_filtrage_rules.sh
 	elif [ $choix -eq 6 ]; then
 		clear
-		$default_firewall/desactivate_nat.sh
+		. $default_firewall/desactivate_nat.sh
 	else
 		exit 0
 	fi
