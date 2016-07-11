@@ -65,4 +65,7 @@ comp-lzo
 verb 6
 " > $root_vpn/client/$client_name/$client_name.conf
 
+mkdir /home/ubuntu/INTECH/VPN/x509/client/$client_name
+cp $root_vpn/client/$client_name/* /home/ubuntu/INTECH/VPN/x509/client/$client_name/
+
 exit 0
