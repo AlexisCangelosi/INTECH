@@ -95,5 +95,5 @@ echo $bash > $path/filtrage_in_progress.sh
 chmod 775 $path/*.sh
 
 
-echo "[!] Filtrage en place !"
+echo "[!] Filtrage en place ! [OK]"
 iptables -L -v

@@ -60,6 +60,6 @@ find $path/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
 . $path/redirect_in_progress.sh
 . $path/vpn_in_progress.sh
 
-echo "[!] Règles supprimées :"
+echo "[!] Règles supprimées [OK]"
 echo $rule_1
 echo $rule_2

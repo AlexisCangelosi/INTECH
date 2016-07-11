@@ -31,6 +31,6 @@ find $path/default_firewall.sh -type f -exec sed -i 's/#iptables -t nat -A POSTR
 . $path/redirect_in_progress.sh
 . $path/vpn_in_progress.sh
 
-echo "[*] NAT établie : [OK]"
+echo "[*] NAT établie [OK]"
 
 exit 0

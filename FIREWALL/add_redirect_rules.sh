@@ -62,6 +62,6 @@ echo $rule_2 >> $path/redirect_in_progress.sh
 . $path/redirect_in_progress.sh
 . $path/vpn_in_progress.sh
 
-echo "[!] Règles mise en place :"
+echo "[!] Règles mise en place [OK]"
 echo $rule_1
 echo $rule_2

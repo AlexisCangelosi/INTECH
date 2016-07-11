@@ -22,6 +22,8 @@ echo "##########################################################################
 
 find $path/default_firewall.sh -type f -exec sed -i 's/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE/$NAT/g' {} \+
 iptables -t nat -D POSTROUTING 1
+iptables -t nat -D POSTROUTING 1
+iptables -t nat -D POSTROUTING 1
 
 echo "[*] NAT desactivé : [OK]"
 
@@ -29,5 +31,7 @@ echo "[*] NAT desactivé : [OK]"
 . $path/filtrage_in_progress.sh
 . $path/redirect_in_progress.sh
 . $path/vpn_in_progress.sh
+
+echo "[*] NAT desactivé ! [OK]"
 
 exit 0

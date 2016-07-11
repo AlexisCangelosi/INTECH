@@ -67,4 +67,7 @@ iptables -t nat -I POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE" > $path/
 . $path/vpn_in_progress.sh
 
 service openvpn restart
+
+echo "[!] Serveur actif ! [OK]"
+
 exit 0

@@ -62,5 +62,5 @@ echo $rule >> $path/filtrage_in_progress.sh
 . $path/redirect_in_progress.sh
 . $path/vpn_in_progress.sh
 
-echo "[!] Règle mise en place :"
+echo "[!] Règle mise en place [OK]"
 echo $rule

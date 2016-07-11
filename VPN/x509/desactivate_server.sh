@@ -36,6 +36,10 @@ read -p "[*] -> " server_name
 
 rm $root_openvpn/dh* $root_openvpn/ca.crt $root_openvpn/$server_name.*
 
+iptables -t nat -D POSTROUTING 1
+iptables -t nat -D POSTROUTING 1
+iptables -t nat -D POSTROUTING 1
+
 echo "" > $path/vpn_in_progress.sh
 
 
@@ -45,4 +49,7 @@ echo "" > $path/vpn_in_progress.sh
 . $path/vpn_in_progress.sh
 
 service openvpn restart
+
+echo "[*] Server desactivé ! [OK]"
+
 exit 0
