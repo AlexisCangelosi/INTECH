@@ -1,14 +1,40 @@
-## INTECH
-Ce repertoire contient l'ensemble de mes projets ainsi que les évaluations que j'ai effectué au cours des 5 semestre.
+## Examen S5 Fin de Semestre
 
-### Semestre 3 :
----
-**DYPE** 
+### 1 - Firewall 
 
-### Semestre 4 :
----
-**HAZE** 
+Le dossier contient les scripts d'automatisation du firewall :
 
-### Semestre 5 :
----
-**EIB (Eyes In Back)** 
+- Firewall par defaut
+- Activation/Desactivation du NAT
+- Ajout/Suppression un regle de redirection
+- Ajouter/Suppression un regle de filtrage
+
+### 2 - PKI
+
+Le dossier contient les scripts d'automatisation du PKI :
+
+- Ajout/Suppression d'un CA Fille
+- Ajout/Suppression d'un Certificat
+- Un sample d'Openssl.conf
+
+### 3 - VPN
+
+Le dossier contient les scripts d'automatisation du VPN :
+
+#### PSK :
+- Un dossier client avec la conf 
+- Un dossier serveur avec la conf
+- Un fichier d'install 
+
+#### x509 :
+- Un dossier client avec la conf 
+- Un dossier serveur avec la conf
+- Activation/Desactivation du client to client
+- Activation/Desactivation du serveur
+- Ajout/Suppression d'un serveur
+- Ajout/Suppression d'un client
+
+### 4 - MASTER
+
+Un script master.sh qui regroupe l'ensemble des fonctionnalités de l'examen
+
