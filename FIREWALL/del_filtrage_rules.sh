@@ -80,10 +80,12 @@ fi
 
 find FIREWALL/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
 
-. $path/default_firewall.sh
-. $path/filtrage_in_progress.sh
-. $path/redirect_in_progress.sh
-. $path/vpn_in_progress.sh
+./FIREWALL/default_firewall.sh
+clear
+./FIREWALL/filtrage_in_progress.sh
+./FIREWALL/redirect_in_progress.sh
+./FIREWALL/vpn_in_progress.sh
+
 
 echo "[!] Règle supprimée [OK]"
 echo $rule

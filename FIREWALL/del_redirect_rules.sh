@@ -57,10 +57,12 @@ fi
 find $path/redirect_in_progress.sh -type f -exec sed -i "s/$rule_1/ /g" {} \+
 find $path/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
 
-. $path/default_firewall.sh
-. $path/filtrage_in_progress.sh
-. $path/redirect_in_progress.sh
-. $path/vpn_in_progress.sh
+./FIREWALL/default_firewall.sh
+clear
+./FIREWALL/filtrage_in_progress.sh
+./FIREWALL/redirect_in_progress.sh
+./FIREWALL/vpn_in_progress.sh
+
 
 echo "[!] Règles supprimées [OK]"
 echo $rule_1

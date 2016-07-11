@@ -20,7 +20,7 @@ proto="None"
 rule_1="None"
 rule_2="None"
 
-###############################################################################
+###############################g################################################
 # 								SCRIPT									  
 ###############################################################################
 
@@ -56,13 +56,17 @@ else
 fi
 
 
-echo $rule_1 >> /opt/firewall/redirect_in_progress.sh
-echo $rule_2 >> /opt/firewall/redirect_in_progress.sh
+echo $rule_1 >> FIREWALL/redirect_in_progress.sh
+echo $rule_2 >> FIREWALL/redirect_in_progress.sh
 
-. $path/default_firewall.sh
-. $path/filtrage_in_progress.sh
-. $path/redirect_in_progress.sh
-. $path/vpn_in_progress.sh
+./FIREWALL/default_firewall.sh
+clear
+./FIREWALL/filtrage_in_progress.sh
+./FIREWALL/redirect_in_progress.sh
+./FIREWALL/vpn_in_progress.sh
+
+
+iptables -L
 
 echo "[!] Règles mise en place [OK]"
 echo $rule_1
