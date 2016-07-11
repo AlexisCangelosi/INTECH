@@ -76,12 +76,14 @@ else
 	. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
 fi
 
-echo $rule >> FIREWALL/filtrage_in_progress.sh
+#echo $rule >> FIREWALL/filtrage_in_progress.sh
 
 ./FIREWALL/default_firewall.sh
+clear
 ./FIREWALL/filtrage_in_progress.sh
 ./FIREWALL/redirect_in_progress.sh
 ./FIREWALL/vpn_in_progress.sh
 
+iptables -L
+
 echo "[!] Règle mise en place [OK]"
-echo $rule
