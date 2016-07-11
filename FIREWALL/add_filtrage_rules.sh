@@ -82,7 +82,7 @@ fi
 clear
 ./FIREWALL/filtrage_in_progress.sh
 ./FIREWALL/redirect_in_progress.sh
-./FIREWALL/vpn_in_progress.sh
+
 
 iptables -L
 

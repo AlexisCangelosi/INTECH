@@ -61,10 +61,7 @@ iptables -t nat -I POSTROUTING -o eth0 -s 10.8.1.0/24 -j MASQUERADE
 # Masquerade traffic from LAN to 'the world'
 iptables -t nat -I POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE" > $path/vpn_in_progress.sh
 
-./FIREWALL/default_firewall.sh
-clear
-./FIREWALL/filtrage_in_progress.sh
-./FIREWALL/redirect_in_progress.sh
+
 ./FIREWALL/vpn_in_progress.sh
 
 

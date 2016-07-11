@@ -63,7 +63,6 @@ echo $rule_2 >> FIREWALL/redirect_in_progress.sh
 clear
 ./FIREWALL/filtrage_in_progress.sh
 ./FIREWALL/redirect_in_progress.sh
-./FIREWALL/vpn_in_progress.sh
 
 
 iptables -L

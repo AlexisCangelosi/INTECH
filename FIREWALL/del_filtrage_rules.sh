@@ -84,7 +84,7 @@ find FIREWALL/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
 clear
 ./FIREWALL/filtrage_in_progress.sh
 ./FIREWALL/redirect_in_progress.sh
-./FIREWALL/vpn_in_progress.sh
+
 
 
 echo "[!] Règle supprimée [OK]"

@@ -46,7 +46,7 @@ if [ $proto -eq "1" ] ; then
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p udp --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
 elif [ $proto -eq "2" ] ; then
-	rule_1="iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $port_dst_ext -j DNAT --to-destination $ip_dst:$port_dst_int"
+	rule_1="iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $port_dst_ext -j DNAT --to-destination $ip:$port_dst_int"
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p tcp --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
 else 
@@ -61,7 +61,6 @@ find FIREWALL/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
 clear
 ./FIREWALL/filtrage_in_progress.sh
 ./FIREWALL/redirect_in_progress.sh
-./FIREWALL/vpn_in_progress.sh
 
 
 echo "[!] Règles supprimées [OK]"
