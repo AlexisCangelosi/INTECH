@@ -51,22 +51,22 @@ read -p "[*] => " port_dst
 
 if [ $proto -eq "1" ] ; then
 	if [ $type_filt -eq "1" ] ; then
-		echo "iptables -A INPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh 
+		echo "iptables -A INPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh 
 	elif [ $type_filt -eq "2" ] ; then
-		echo "iptables -A OUTPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh
+		echo "iptables -A OUTPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh
 	elif [ $type_filt -eq "3" ] ; then
-		echo "iptables -A FORWARD -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh 
+		echo "iptables -A FORWARD -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh 
 	else 
 		echo "[!] Type non reconnu !"
 		. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
 	fi
 elif [ $proto -eq "2" ] ; then
 	if [ $type_filt -eq "1" ] ; then
-		echo "iptables -A INPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh 
+		echo "iptables -A INPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh 
 	elif [ $type_filt -eq "2" ] ; then
-		echo "iptables -A OUTPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh 
+		echo "iptables -A OUTPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh 
 	elif [ $type_filt -eq "3" ] ; then
-		echo "iptables -A FORWARD -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> /FIREWALL/filtrage_in_progress.sh 
+		echo "iptables -A FORWARD -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" >> FIREWALL/filtrage_in_progress.sh 
 	else 
 		echo "[!] Type non reconnu !"
 		. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
