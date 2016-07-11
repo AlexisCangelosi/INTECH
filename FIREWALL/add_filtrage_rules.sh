@@ -50,12 +50,30 @@ echo "[*] Port destionation : (default = None)"
 read -p "[*] => " port_dst
 
 if [ $proto -eq "1" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+	if [ $type_filt -eq "1" ] ; then
+		rule="iptables -A INPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+	elif [ $type_filt -eq "2" ] ; then
+		rule="iptables -A OUTPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+	elif [ $type_filt -eq "3" ] ; then
+		rule="iptables -A FORWARD -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+	else 
+		echo "[!] Type non reconnu !"
+		. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
+	fi
 elif [ $proto -eq "2" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+	if [ $type_filt -eq "1" ] ; then
+		rule="iptables -A INPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+	elif [ $type_filt -eq "2" ] ; then
+		rule="iptables -A OUTPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+	elif [ $type_filt -eq "3" ] ; then
+		rule="iptables -A FORWARD -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+	else 
+		echo "[!] Type non reconnu !"
+		. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
+	fi
 else 
 	echo "[!] Protocole non correct !"
-	./add_filtrage_rules.sh
+	. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
 fi
 
 echo $rule >> $path/filtrage_in_progress.sh
