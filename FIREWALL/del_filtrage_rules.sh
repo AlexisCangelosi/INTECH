@@ -36,6 +36,10 @@ echo "[1] INPUT "
 echo "[2] OUTPUT "
 echo "[3] FORWARD "
 read -p "[*] => " type_filt
+echo "[*] Protocole : "
+echo "[!] 1 - UDP"
+echo "[!] 2 - TCP"
+read -p "[*] => " proto
 echo "[*] IP source : (default = None)"
 read -p "[*] => "
 echo "[*] IP destination : (default = None)"
@@ -45,10 +49,10 @@ read -p "[*] => "
 echo "[*] Port destionation : (default = None)"
 read -p "[*] => "
 
-if [ $proto -eq "udp" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p $proto --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
-elif [ $proto -eq "tcp" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p $proto --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+if [ $proto -eq "1" ] ; then
+	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+elif [ $proto -eq "2" ] ; then
+	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
 else 
 	echo "[!] Protocole non correct !"
 	./add_filtrage_rules.sh
