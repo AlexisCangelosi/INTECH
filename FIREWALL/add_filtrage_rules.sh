@@ -74,9 +74,9 @@ elif [ $proto -eq "2" ] ; then
 else 
 	echo "[!] Protocole non correct !"
 	. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
-fi
 
-echo "$rule" >> $path/filtrage_in_progress.sh
+echo $rule >> filtrage_in_progress.sh
+cp filtrage_in_progress.sh /opt/firewall/filtrage_in_progress.sh
 
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
