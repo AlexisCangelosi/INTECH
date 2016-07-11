@@ -30,7 +30,9 @@ clear
 echo "###########################################################################"
 echo "MISE EN PLACE DES REGLES DE REDIRECTION !"
 echo "###########################################################################"
-echo "[*] Protocole : (tcp/udp) "
+echo "[*] Protocole : "
+echo "[!] 1 - UDP"
+echo "[!] 2 - TCP"
 read -p "[*] => " proto
 echo "[*] IP "
 read -p "[*] => " ip
@@ -40,17 +42,17 @@ echo "[*] Port destination interne : "
 read -p "[*] => " port_dst_int
 
 
-if [ $proto -eq "udp" ] ; then
+if [ $proto -eq "1" ] ; then
 	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip:$port_dst_int"
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p $proto --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
-elif [ $proto -eq "tcp" ] ; then
+elif [ $proto -eq "2" ] ; then
 	rule_1="iptables -t nat -A PREROUTING -i eth0 -p $proto --dport $port_dst_ext -j DNAT --to-destination $ip:$port_dst_int"
     rule_2="iptables -A FORWARD -i eth0 -o eth1 -p $proto --dport $port_dst_ext -m state --state NEW -j ACCEPT"
 
 else 
 	echo "[!] Protocole non correct !"
-	./add_redirect_rules.sh
+	. /home/ubuntu/INTECH/FIREWALL/add_redirect_rules.sh
 fi
 
 echo $bash > $path/redirect_in_progress.sh
