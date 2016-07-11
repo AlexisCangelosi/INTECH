@@ -76,7 +76,7 @@ else
 	. /home/ubuntu/INTECH/FIREWALL/add_filtrage_rules.sh
 fi
 
-echo $rule >> filtrage_in_progress.sh
+echo $rule >> FIREWALL/filtrage_in_progress.sh
 cp filtrage_in_progress.sh /opt/firewall/filtrage_in_progress.sh
 
 . $path/default_firewall.sh
