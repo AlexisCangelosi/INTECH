@@ -13,10 +13,10 @@
 path="/opt/firewall"
 bash="#!/bin/bash \n"
 
-ip_src="None"
-ip_dst="None"
-port_dst="None"
-port_src="None"
+ip_src=""
+ip_dst=""
+port_dst=""
+port_src=""
 proto="None"
 type_filt="None"
 rule="None"
@@ -41,13 +41,13 @@ echo "[!] 1 - UDP"
 echo "[!] 2 - TCP"
 read -p "[*] => " proto
 echo "[*] IP source : (default = None)"
-read -p "[*] => "
+read -p "[*] => " ip_src
 echo "[*] IP destination : (default = None)"
-read -p "[*] => "
+read -p "[*] => " ip_dst
 echo "[*] Port source : (default = None)"
-read -p "[*] => "
+read -p "[*] => " port_src
 echo "[*] Port destionation : (default = None)"
-read -p "[*] => "
+read -p "[*] => " port_dst
 
 if [ $proto -eq "1" ] ; then
 	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
