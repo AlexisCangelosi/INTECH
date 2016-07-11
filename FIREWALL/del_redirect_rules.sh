@@ -54,8 +54,8 @@ else
 	./add_redirect_rules.sh
 fi
 
-find $path/redirect_in_progress.sh -type f -exec sed -i "s/$rule_1/ /g" {} \+
-find $path/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
+find FIREWALL/redirect_in_progress.sh -type f -exec sed -i "s/$rule_1/ /g" {} \+
+find FIREWALL/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
 
 ./FIREWALL/default_firewall.sh
 clear
