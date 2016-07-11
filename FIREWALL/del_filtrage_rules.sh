@@ -41,24 +41,44 @@ echo "[!] 1 - UDP"
 echo "[!] 2 - TCP"
 read -p "[*] => " proto
 echo "[*] IP source : (default = None)"
-read -p "[*] => "
+read -p "[*] => " ip_src
 echo "[*] IP destination : (default = None)"
-read -p "[*] => "
+read -p "[*] => " ip_dst
 echo "[*] Port source : (default = None)"
-read -p "[*] => "
+read -p "[*] => " port_src
 echo "[*] Port destionation : (default = None)"
-read -p "[*] => "
+read -p "[*] => " port_dst
+
 
 if [ $proto -eq "1" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT"
+	if [ $type_filt -eq "1" ] ; then
+		rule="iptables -A INPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" 
+	elif [ $type_filt -eq "2" ] ; then
+		rule="iptables -A OUTPUT -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" 
+	elif [ $type_filt -eq "3" ] ; then
+		rule="iptables -A FORWARD -s $ip_src -d $ip_dst -p udp --sport $port_src --dport $port_dst -m state --state NEW -j ACCEPT" 
+	else 
+		echo "[!] Type non reconnu !"
+		. /home/ubuntu/INTECH/FIREWALL/del_filtrage_rules.sh
+	fi
 elif [ $proto -eq "2" ] ; then
-	rule="iptables -A $type_filt -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT"
+	if [ $type_filt -eq "1" ] ; then
+		rule="iptables -A INPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" 
+	elif [ $type_filt -eq "2" ] ; then
+		rule="iptables -A OUTPUT -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" 
+	elif [ $type_filt -eq "3" ] ; then
+		rule="iptables -A FORWARD -s $ip_src -d $ip_dst -p tcp --sport $port_src --dport $port_dst -m state --state NEW --syn -j ACCEPT" 
+	else 
+		echo "[!] Type non reconnu !"
+		. /home/ubuntu/INTECH/FIREWALL/del_filtrage_rules.sh
+	fi
 else 
 	echo "[!] Protocole non correct !"
-	./add_filtrage_rules.sh
+	. /home/ubuntu/INTECH/FIREWALL/del_filtrage_rules.sh
 fi
 
-find $path/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
+
+find FIREWALL/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
 
 . $path/default_firewall.sh
 . $path/filtrage_in_progress.sh
