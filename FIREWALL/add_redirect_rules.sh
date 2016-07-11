@@ -55,7 +55,7 @@ else
 	. /home/ubuntu/INTECH/FIREWALL/add_redirect_rules.sh
 fi
 
-echo $bash > $path/redirect_in_progress.sh
+
 echo $rule_1 >> $path/redirect_in_progress.sh
 echo $rule_2 >> $path/redirect_in_progress.sh
 

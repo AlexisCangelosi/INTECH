@@ -58,7 +58,6 @@ else
 	./add_filtrage_rules.sh
 fi
 
-echo $bash > $path/filtrage_in_progress.sh
 echo $rule >> $path/filtrage_in_progress.sh
 
 . $path/default_firewall.sh
