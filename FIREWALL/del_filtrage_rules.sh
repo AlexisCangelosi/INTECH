@@ -82,8 +82,6 @@ find FIREWALL/filtrage_in_progress.sh -type f -exec sed -i "s/$rule/ /g" {} \+
 
 ./FIREWALL/default_firewall.sh
 clear
-./FIREWALL/filtrage_in_progress.sh
-./FIREWALL/redirect_in_progress.sh
 
 
 

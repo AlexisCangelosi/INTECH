@@ -59,8 +59,6 @@ find FIREWALL/redirect_in_progress.sh -type f -exec sed -i "s/$rule_2/ /g" {} \+
 
 ./FIREWALL/default_firewall.sh
 clear
-./FIREWALL/filtrage_in_progress.sh
-./FIREWALL/redirect_in_progress.sh
 
 
 echo "[!] Règles supprimées [OK]"
