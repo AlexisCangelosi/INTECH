@@ -49,9 +49,7 @@ echo "[*] Port source : (default = None)"
 read -p "[*] => " port_src
 echo "[*] Port destionation : (default = None)"
 read -p "[*] => " port_dst
-echo "[*] Action : "
-echo "[!] 1 - ACCEPT"
-echo "[!] 2 - DROP"
+echo "[*] Action : (accept/drop)"
 read -p "[*] => " action
 
 # Test chaque variable pour savoir si elle est vide ou pas 
@@ -60,25 +58,25 @@ read -p "[*] => " action
 if [ -n $ip_src ]; then
 	$ip_src_f = "-s $ip_src"
 else
-	$ip_src_f = $ip_src_f
+	$ip_src_f = ""
 fi
 
 if [ -n $ip_dst ]; then
 	$ip_dst_f = "-d $ip_dst"
 else
-	$ip_dst_f = $ip_dst_f
+	$ip_dst_f = ""
 fi
 
 if [ -n $port_src ]; then
 	$port_src_f = "--sport $port_src"
 else
-	$port_src_f = $port_src_f
+	$port_src_f = ""
 fi
 
 if [ -n $port_dst ]; then
 	$port_dst_f = "--dport $port_dst"
 else
-	$port_dst_f = $port_dst_f
+	$port_dst_f = ""
 fi
 
 
