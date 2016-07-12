@@ -55,28 +55,28 @@ read -p "[*] => " action
 # Test chaque variable pour savoir si elle est vide ou pas 
 # Si elle est vide on passe sinon on lui rajoute l'option correspondante
 
-if [ -n $ip_src ]; then
-	$ip_src_f = "-s $ip_src"
-else
+if [ $ip_src == "" ]; then
 	$ip_src_f = ""
+else
+	$ip_src_f = "-s $ip_src"
 fi
 
-if [ -n $ip_dst ]; then
-	$ip_dst_f = "-d $ip_dst"
-else
+if [ $ip_dst == "" ]; then
 	$ip_dst_f = ""
+else
+	$ip_dst_f = "-d $ip_dst"
 fi
 
-if [ -n $port_src ]; then
-	$port_src_f = "--sport $port_src"
-else
+if [ $port_src == "" ]; then
 	$port_src_f = ""
+else
+	$port_src_f = "--sport $port_src"
 fi
 
-if [ -n $port_dst ]; then
-	$port_dst_f = "--dport $port_dst"
-else
+if [ $port_dst == "" ]; then
 	$port_dst_f = ""
+else
+	$port_dst_f = "--dport $port_dst"
 fi
 
 
